@@ -1,0 +1,4 @@
+*.o
+*.dat
+twophase
+out.log
