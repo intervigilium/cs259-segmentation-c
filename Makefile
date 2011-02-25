@@ -32,7 +32,7 @@ ALLOBJ = IORoutines.o    TwoPhase3D_driver.o    TwoPhase3DRoutines.o    timer.o
 
 PAPIDIR= /mnt/jc5/CS259/papi
 INCLUDEDIR = -I$(CURRDIR) -I$(OBJDIR) -I$(PAPIDIR)
-CFLAGS = -O3
+CFLAGS = -g -pg
 
 LDFLAGS = -L/mnt/jc5/CS259/papi/ -lm -lutil_papi -lpapi
 
