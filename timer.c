@@ -1,4 +1,4 @@
-#ifdef _MSC_VER		// Accomodate DOS file descriptor
+#ifdef _MSC_VER			// Accomodate DOS file descriptor
 #include <sys/timeb.h>
 #else
 #include <sys/timeb.h>
@@ -9,8 +9,7 @@
 
 double realtime(void)
 {
-	struct timeb tp;
-	ftime(&tp);
-	return((double)(tp.time)*1000+(double)(tp.millitm));
+    struct timeb tp;
+    ftime(&tp);
+    return ((double) (tp.time) * 1000 + (double) (tp.millitm));
 }
-
