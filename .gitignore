@@ -1,4 +1,5 @@
 *.o
 *.dat
+*.out
 twophase
 out.log
