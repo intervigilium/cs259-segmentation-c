@@ -10,12 +10,6 @@
 //#####################################################################
 //
 #include <math.h>
-//#include <iostream>
-//using namespace std;
-
-//#include "DoubleArray1D.h"
-//#include "DoubleArray3D.h"
-
 #include "GridParameters.h"
 #include "RunParameters.h"
 #include "TwoPhase3D.h"
@@ -375,8 +369,6 @@ void evaluateTwoPhase3DopExplicit(double phi[M][N][P],
     long j;
     long k;
 
-
-
     double Grad;
 
     double K;			// curvature
@@ -394,16 +386,13 @@ void evaluateTwoPhase3DopExplicit(double phi[M][N][P],
     double Dxx, Dyy, Dzz;
     double Dxy, Dxz, Dyz;
 
-
     double c1;			// = AC.c1;   // mean intensities
     double c2;			// = AC.c2;
-
 
     getMeanIntensities1(u0, phi, AC);
 
     c1 = AC->c1;		// mean intensities
     c2 = AC->c2;
-
 
     for (i = 1; i < m - 1; i++) {
 	for (j = 1; j < n - 1; j++) {
@@ -463,15 +452,12 @@ void evaluateTwoPhase3DopExplicit(double phi[M][N][P],
 
     NeumannBC(curvature_motion_part);
 
-
     for (i = 0; i < M; i++)
 	for (j = 0; j < N; j++) {
 	    for (k = 0; k < P; k++) {
 		PPHI(i, j, k) += curvature_motion_part[i][j][k] * dt;
 	    }
 	}
-
-    return;
 }
 
 // 
