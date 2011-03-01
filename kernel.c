@@ -160,7 +160,7 @@ void evaluateTwoPhase3DopExplicit(double phi[M][N][P],
     }
     }
 
-    /* NeumannBC functionality inlined */
+    /* NeumannBC functionality inlined, pipeline this */
     for (j = 0; j < N; j++) {
     for (k = 0; k < P; k++) {
         curvature_motion_part[0][j][k] = curvature_motion_part[1][j][k];
