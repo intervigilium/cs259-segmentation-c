@@ -26,13 +26,6 @@ void NeumannBC(double phi[M][N][P])
 }
 
 
-void getMeanIntensities(const double u0[M][N][P],
-             const double phi[M][N][P], TwoPhase3D * AC)
-{
-
-}
-
-
 void evaluateTwoPhase3DopExplicit(double phi[M][N][P],
                   const double u0[M][N][P],
                   const GridParameters * gridData,
