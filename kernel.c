@@ -20,12 +20,6 @@ double DiracDelta(double a)
 }
 
 
-void NeumannBC(double phi[M][N][P])
-{
-
-}
-
-
 void evaluateTwoPhase3DopExplicit(double phi[M][N][P],
                   const double u0[M][N][P],
                   const GridParameters * gridData,
@@ -166,8 +160,36 @@ void evaluateTwoPhase3DopExplicit(double phi[M][N][P],
     }
     }
 
-    /* inline this */
-    NeumannBC(curvature_motion_part);
+    /* NeumannBC functionality inlined */
+    for (j = 0; j < N; j++) {
+    for (k = 0; k < P; k++) {
+        curvature_motion_part[0][j][k] = curvature_motion_part[1][j][k];
+        curvature_motion_part[M - 1][j][k] = curvature_motion_part[M - 2][j][k];
+    }
+    }
+
+    for (i = 0; i < M; i++) {
+    for (k = 0; k < P; k++) {
+        curvature_motion_part[i][0][k] = curvature_motion_part[i][1][k];
+        curvature_motion_part[i][N - 1][k] = curvature_motion_part[i][N - 2][k];
+    }
+    }
+
+    for (i = 0; i < M; i++) {
+    for (j = 0; j < N; j++) {
+        curvature_motion_part[i][j][0] = curvature_motion_part[i][j][1];
+        curvature_motion_part[i][j][P - 1] = curvature_motion_part[i][j][P - 2];
+    }
+    }
+
+    curvature_motion_part[0][0][0] = curvature_motion_part[1][1][1];
+    curvature_motion_part[M - 1][0][0] = curvature_motion_part[M - 2][1][1];
+    curvature_motion_part[0][N - 1][0] = curvature_motion_part[1][N - 2][1];
+    curvature_motion_part[0][0][P - 1] = curvature_motion_part[1][1][P - 2];
+    curvature_motion_part[M - 1][N - 1][0] = curvature_motion_part[M - 2][N - 2][1];
+    curvature_motion_part[M - 1][0][P - 1] = curvature_motion_part[M - 2][1][P - 2];
+    curvature_motion_part[0][N - 1][P - 1] = curvature_motion_part[1][N - 2][P - 2];
+    curvature_motion_part[M - 1][N - 1][P - 1] = curvature_motion_part[M - 2][N - 2][P - 2];
 
     /* pipeline this */
     for (i = 0; i < M; i++) {
