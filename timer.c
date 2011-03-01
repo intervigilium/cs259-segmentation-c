@@ -9,7 +9,7 @@
 
 double realtime(void)
 {
-    struct timeb tp;
-    ftime(&tp);
-    return ((double) (tp.time) * 1000 + (double) (tp.millitm));
+	struct timeb tp;
+	ftime(&tp);
+	return ((double)(tp.time) * 1000 + (double)(tp.millitm));
 }

@@ -10,12 +10,11 @@
 #define __RunParameters__
 
 typedef struct {
-    char scheme;		// Difference scheme identifier
-    double dt;			// Time step size
-    int rkOrder;		// Order of Runge-Kutta method
+	char scheme;		// Difference scheme identifier
+	double dt;		// Time step size
+	int rkOrder;		// Order of Runge-Kutta method
 
-    double epsilon;
+	double epsilon;
 } RunParameters;
-
 
 #endif

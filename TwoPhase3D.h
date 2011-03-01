@@ -21,20 +21,18 @@
 
 #define PPHI(i, j, k) (phi[i][j][k])
 
-
-
 typedef struct {
 
-    double mu;
-    double nu;
-    double lambda1;
-    double lambda2;
+	double mu;
+	double nu;
+	double lambda1;
+	double lambda2;
 
-    double c1;			// mean intensities values
-    double c2;
+	double c1;		// mean intensities values
+	double c2;
 
-    char method;		// method identifier -- Explicit or Semi-Implicit
-    char grad;			// gradient identifier -- Grad or DiracDelta
+	char method;		// method identifier -- Explicit or Semi-Implicit
+	char grad;		// gradient identifier -- Grad or DiracDelta
 } TwoPhase3D;
 
 #endif

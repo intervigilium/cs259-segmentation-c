@@ -14,18 +14,14 @@
 #include "GridParameters.h"
 #include "RunParameters.h"
 
-
 void advanceTimeStepEXPLICIT(double phi[M][N][P], const double u0[M][N][P],
 			     const GridParameters * gridData,
-			     const RunParameters * runData,
-			     TwoPhase3D * AC);
+			     const RunParameters * runData, TwoPhase3D * AC);
 
 void advanceTimeStepIMPLICIT(double phi[M][N][P], const double u0[M][N][P],
 			     const GridParameters * gridData,
-			     const RunParameters * runData,
-			     TwoPhase3D * AC);
+			     const RunParameters * runData, TwoPhase3D * AC);
 
-double getCourantLimit(const GridParameters * gridData,
-		       const TwoPhase3D * AC);
+double getCourantLimit(const GridParameters * gridData, const TwoPhase3D * AC);
 
 void initializePHI(double phi[M][N][P], const GridParameters * gridData);

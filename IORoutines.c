@@ -16,11 +16,11 @@
 //
 void getDAT3DInfo(const char *filename, int *m, int *n, int *p)
 {
-    FILE *fp;
-    if (fp = fopen(filename, "rb")) {
-	fscanf(fp, "%d %d %d\n", m, n, p);
-	fclose(fp);
-    }
+	FILE *fp;
+	if (fp = fopen(filename, "rb")) {
+		fscanf(fp, "%d %d %d\n", m, n, p);
+		fclose(fp);
+	}
 
 }
 
@@ -31,26 +31,26 @@ void getDAT3DInfo(const char *filename, int *m, int *n, int *p)
 //
 void readDAT3D(double A[M][N][P], const char *filename)
 {
-    FILE *fp;
-    long m, n, p;
-    long i, j, k;
+	FILE *fp;
+	long m, n, p;
+	long i, j, k;
 
-    if (fp = fopen(filename, "rb")) {
-	fscanf(fp, "%ld %ld %ld\n", &m, &n, &p);
+	if (fp = fopen(filename, "rb")) {
+		fscanf(fp, "%ld %ld %ld\n", &m, &n, &p);
 
-	for (k = 0; k < p; k++) {
-	    for (j = 0; j < n; j++) {
-		for (i = 0; i < m; i++) {
-		    fscanf(fp, "%lf ", &A[i][j][k]);
+		for (k = 0; k < p; k++) {
+			for (j = 0; j < n; j++) {
+				for (i = 0; i < m; i++) {
+					fscanf(fp, "%lf ", &A[i][j][k]);
+				}
+			}
 		}
-	    }
-	}
 
-	fclose(fp);
-    } else {
-	printf("Error in reading file.\n");
-	getchar();
-    }
+		fclose(fp);
+	} else {
+		printf("Error in reading file.\n");
+		getchar();
+	}
 }
 
 //
