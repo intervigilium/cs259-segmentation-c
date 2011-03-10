@@ -23,8 +23,8 @@ SRCDIR  = $(CURRDIR):$(OBJDIR)
 vpath %.c $(SRCDIR)
 
 # put all the used .cpp file here:
-ALLSRC = IORoutines.c  TwoPhase3D_driver.c  TwoPhase3DRoutines.c  timer.c  
-ALLOBJ = IORoutines.o    TwoPhase3D_driver.o    TwoPhase3DRoutines.o    timer.o
+ALLSRC = IORoutines.c TwoPhase3D_driver.c TwoPhase3DRoutines.c timer.c
+ALLOBJ = IORoutines.o TwoPhase3D_driver.o TwoPhase3DRoutines.o timer.o
 
 #ALLOBJ = $(ALLSRC:%.c=$(OUTPUT)/%.o)
 
